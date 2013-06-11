@@ -1,5 +1,4 @@
 require 'blacklist/engine'
-require 'blacklist/domain'
 require 'blacklist/domain_blacklist_validator'
 
 module Blacklist
