@@ -3,7 +3,7 @@ rvm:
   - 1.9.3
   - 2.0.0
 notifications:
-  -email: false
+  email: false
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - RAILS_ENV=test bundle exec rspec spec/
