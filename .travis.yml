@@ -3,3 +3,5 @@ rvm:
   - 2.0.0
 script:
   - RAILS_ENV=test bundle exec rspec spec/
+notifications:
+  -email: false
