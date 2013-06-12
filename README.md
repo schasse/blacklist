@@ -12,6 +12,9 @@ Blacklist some domains p.e. for your email validation.
 
 ## EXAMPLE
 
+    ~$ Blacklist::Domain.create! 'blacklisted-domain.com'
+
+
     class User
       include Mongoid::Document
       include Mongoid::Timestamps
