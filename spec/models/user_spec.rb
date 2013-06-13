@@ -3,9 +3,9 @@ require 'spec_helper'
 describe User, 'DomainBlacklistValidator' do
   before do
     @domains = []
-    @domains << Blacklist::Domain.new(domain: 'blacklisted.com')
-    @domains << Blacklist::Domain.new(domain: 'junk.de')
-    Blacklist::Domain.stub(:all).and_return(@domains)
+    @domains << 'blacklisted.com'
+    @domains << 'junk.de'
+    Blacklist::Domain.stub(:pluck).and_return(@domains)
 
     @user = User.new
   end
