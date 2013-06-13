@@ -21,13 +21,17 @@ describe Blacklist::DomainBlacklistValidator do
       Blacklist::Domain.stub(:all).and_return(@domains)
     end
 
-    it 'returns true, when string matches some domain' do
-      @validator.send(:blacklisted?, 'www.blacklisted.com')
-        .should be_true
+    ['blacklisted.com', 'user@blacklisted.com', 'user@junk.de']
+      .each do |blacklisted|
+
+      it "returns true, when string is #{blacklisted}" do
+        @validator.send(:blacklisted?, blacklisted)
+          .should be_true
+      end
     end
 
     it 'return false, when string does not match a domain' do
-      @validator.send(:blacklisted?, 'www.other.com')
+      @validator.send(:blacklisted?, 'user@other.com')
         .should be_false
     end
   end

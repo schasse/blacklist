@@ -14,7 +14,8 @@ module Blacklist
       end
 
       def blacklisted?(string)
-        Domain.all.map { |black| string =~ regexp_from(black.domain) }
+        string = regexp_from(string.split('@').last)
+        Domain.all.map { |black| black.domain =~ string }
           .reduce(false, :|)
       end
   end
