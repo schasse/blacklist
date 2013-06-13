@@ -8,9 +8,9 @@ describe Blacklist::DomainBlacklistValidator do
   describe '#blacklisted?(string)' do
     before do
       @domains = []
-      @domains << Blacklist::Domain.new(domain: 'blacklisted.com')
-      @domains << Blacklist::Domain.new(domain: 'junk.de')
-      Blacklist::Domain.stub(:all).and_return(@domains)
+      @domains << 'blacklisted.com'
+      @domains << 'junk.de'
+      Blacklist::Domain.stub(:pluck).and_return(@domains)
     end
 
     ['blacklisted.com', 'user@blacklisted.com', 'user@junk.de']

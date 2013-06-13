@@ -11,8 +11,7 @@ module Blacklist
 
       def blacklisted?(string)
         string = string.split('@').last
-        Domain.all.map { |black| black.domain.include? string }
-          .reduce(false, :|)
+        Domain.pluck(:domain).include? string
       end
   end
 end
