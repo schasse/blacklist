@@ -5,14 +5,6 @@ describe Blacklist::DomainBlacklistValidator do
     @validator = Blacklist::DomainBlacklistValidator.new({ attributes: {} })
   end
 
-  describe '#regexp_from(domain)' do
-
-    it 'returns a regexp' do
-      @validator.send(:regexp_from, 'some-domain.com').class
-        .should eq(Regexp)
-    end
-  end
-
   describe '#blacklisted?(string)' do
     before do
       @domains = []

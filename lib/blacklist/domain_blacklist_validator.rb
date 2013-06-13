@@ -9,13 +9,9 @@ module Blacklist
 
     private
 
-      def regexp_from(domain)
-        ::Regexp.new domain if domain
-      end
-
       def blacklisted?(string)
-        string = regexp_from(string.split('@').last)
-        Domain.all.map { |black| black.domain =~ string }
+        string = string.split('@').last
+        Domain.all.map { |black| black.domain.include? string }
           .reduce(false, :|)
       end
   end
