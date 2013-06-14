@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.description = 'Blacklist some domains p.e. for your email validation.'
 
   s.files = Dir['{app,lib}/**/*'] +
-    ['MIT-LICENSE', 'Rakefile', 'README.rdoc']
+    ['MIT-LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'rails', '~> 3.2'
