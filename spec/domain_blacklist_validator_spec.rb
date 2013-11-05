@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Blacklist::DomainBlacklistValidator do
   before do
-    @validator = Blacklist::DomainBlacklistValidator.new({ attributes: {} })
+    @validator = Blacklist::DomainBlacklistValidator.new attributes: {}
   end
 
   describe '#blacklisted?(string)' do
@@ -25,6 +25,15 @@ describe Blacklist::DomainBlacklistValidator do
     it 'return false, when string does not match a domain' do
       @validator.send(:blacklisted?, 'user@other.com')
         .should be_false
+    end
+
+    ['fraud@other.blacklisted.com', 'user@otherother.junk.de', 'sub.junk.de']
+      .each do |subdomain_email|
+
+      it "returns true, when string is #{subdomain_email}" do
+        @validator.send(:blacklisted?, subdomain_email)
+          .should be_true
+      end
     end
   end
 end
