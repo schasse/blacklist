@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Blacklist::DomainBlacklistValidator do
   before do
-    @validator = Blacklist::DomainBlacklistValidator.new attributes: {}
+    @validator = Blacklist::DomainBlacklistValidator
+      .new attributes: { any_option: false }
   end
 
   describe '#blacklisted?(string)' do
