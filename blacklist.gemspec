@@ -15,12 +15,13 @@ Gem::Specification.new do |s|
     ['MIT-LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 3.2'
-  s.add_dependency 'mongoid'
+  s.add_dependency 'rails'
+  s.add_dependency 'mongoid', '>= 3'
 
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'travis'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'coveralls'
+  s.add_development_dependency 'appraisal'
 end
