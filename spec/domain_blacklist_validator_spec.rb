@@ -35,5 +35,9 @@ describe Blacklist::DomainBlacklistValidator do
           .should be_true
       end
     end
+
+    it 'returns false, when string is empty' do
+      @validator.send(:blacklisted?, '').should be_false
+    end
   end
 end
