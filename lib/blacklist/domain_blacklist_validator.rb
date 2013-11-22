@@ -11,8 +11,10 @@ module Blacklist
 
       def blacklisted?(string)
         string = string.split('@').last
-        Domain.pluck(:domain).reduce(false) do |result, domain|
-          result || string == domain || string.end_with?(".#{domain}")
+        if string
+          Domain.pluck(:domain).reduce(false) do |result, domain|
+            result || string == domain || string.end_with?(".#{domain}")
+          end
         end
       end
   end
