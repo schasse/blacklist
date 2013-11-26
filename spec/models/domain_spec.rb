@@ -19,6 +19,11 @@ describe Blacklist::Domain do
       it { should have(1).error_on(:domain) }
     end
 
+    context 'with invalid url, contains newline' do
+      before { @domain.domain = "correct.org\notheræ.com" }
+      it { should have(1).error_on(:domain) }
+    end
+
     context 'with valid url' do
       before { @domain.domain = 'some-domain.com' }
       it { should have(:no).error_on(:domain) }
