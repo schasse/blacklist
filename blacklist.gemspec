@@ -24,6 +24,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'coveralls'
   s.add_development_dependency 'appraisal'
 
+  puts (ENV['RUBY_VERSION'] + "\n") * 10
+
   if ENV['RUBY_VERSION'] =~ /rbx/
     s.add_dependency 'rubysl'
     s.add_development_dependency 'rubinius-coverage'
