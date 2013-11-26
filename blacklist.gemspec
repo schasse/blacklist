@@ -36,4 +36,5 @@ Gem::Specification.new do |s|
   if ENV['RUBY_VERSION'] =~ /jruby/
     puts 'its a jruby version!!!!!!'
     s.add_development_dependency 'jdbc-sqlite3'
+  end
 end
