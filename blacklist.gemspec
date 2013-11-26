@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails'
   s.add_dependency 'mongoid', '>= 3'
 
+  s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'travis'
   s.add_development_dependency 'simplecov'
@@ -27,13 +28,12 @@ Gem::Specification.new do |s|
   puts (ENV['RUBY_VERSION'] + "\n") * 10
 
   if ENV['RUBY_VERSION'] =~ /rbx/
+    puts 'its a rbx version!!!!!!'
     s.add_dependency 'rubysl'
     s.add_development_dependency 'rubinius-coverage'
   end
 
   if ENV['RUBY_VERSION'] =~ /jruby/
-    s.add_dependency 'jdbc-sqlite3'
-  else
-    s.add_dependency 'sqlite3'
-  end
+    puts 'its a jruby version!!!!!!'
+    s.add_development_dependency 'jdbc-sqlite3'
 end
