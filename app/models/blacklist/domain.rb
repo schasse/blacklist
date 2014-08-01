@@ -6,5 +6,7 @@ module Blacklist
     field :domain, type: String
     validates :domain, presence: true,
       format: { with: /\A[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}\z/ }
+
+    index({ domain: 1}, { background: true })
   end
 end
